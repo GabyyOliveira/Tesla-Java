@@ -1,0 +1,53 @@
+<section>
+
+  <div class="swiper mySwiper container">
+    <div class="titulo">
+      <h1 class="text-center">Funcionarios cargo: {{nomeCargo}}</h1>
+      <button routerLink="/funcionario/cadastro/{{id_cargo}}" class="mb-2 mt-5 button">Cadastrar
+        Funcionario</button>
+    </div>
+    <!-- <h1 class="text-center">Funcionarios cargo: {{nomeCargo}}</h1>
+    <div class="icons">
+      <a > <i class="bi bi-plus-circle" routerLink="/funcionario/cadastro/{{id_cargo}}"></i></a>
+    </div> -->
+    <div class="swiper-wrapper content d-flex  flex-wrap justify-content-center c">
+
+        <div class="swiper-slide card mx-2 mt-4" *ngFor="let funcionario of funcionarios">
+          <div class="card-content">
+            <div class="image">
+              <img src="../../../../../{{funcionario.func_foto}}" alt="">
+            </div>
+
+            <div class="media-icons">
+              <i class="bi bi-cash-coin" routerLink="/cargo/funcionario/bonificacao/{{funcionario.id_funcionario}}"></i>
+              <i class="bi bi-pencil-square" routerLink="/funcionario/editar/{{funcionario.id_funcionario}}/{{id_cargo}}" ></i>
+              <i class="bi bi-trash-fill" (click)="abrirModal(funcionario.id_funcionario)"></i>
+            </div>
+
+            <div class="name-profession">
+              <span class="name">{{funcionario.func_nome}}</span>
+              <span class="profession">{{funcionario.func_email}}</span>
+              <span class="profession">{{funcionario.func_telefone}}</span>
+              <span class="profession">{{funcionario.func_cidade}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</section>
+<div *ngIf="isModal">
+  <div class="minhaModal"  *ngFor="let funcionario of funcionarios">
+    <div class="tituloModal">
+      <h5 class="text-center">Aviso!</h5>
+    </div>
+    <h6 class="my-4 text-center">Deseja excuir o funcionario?</h6>
+    <div class="buttons">
+      <button class="cancela" (click)="fecharModal()">Cancelar</button>
+      <button class="confirma" (click)="excluirFunc()">Excluir</button>
+    </div>
+  </div>
+</div>
+
+

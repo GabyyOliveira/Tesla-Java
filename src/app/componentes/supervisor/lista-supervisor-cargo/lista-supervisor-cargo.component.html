@@ -1,0 +1,46 @@
+<section>
+
+  <div class="swiper mySwiper container">
+    <div class="titulo">
+      <h1 class="text-center">Supervisor cargo: {{nomeCargo}}</h1>
+      <button routerLink="/funcionario/cadastro/{{id_cargo}}" class="mb-2 mt-5 button">Cadastrar
+        Funcionario</button>
+    </div>
+    <!-- <h1 class="text-center">Funcionarios cargo: {{nomeCargo}}</h1>
+    <div class="icons">
+      <a > <i class="bi bi-plus-circle" routerLink="/funcionario/cadastro/{{id_cargo}}"></i></a>
+    </div> -->
+    <div class="swiper-wrapper content d-flex  flex-wrap justify-content-center c">
+
+        <div class="swiper-slide card mx-2 mt-4">
+          <div class="card-content">
+            <div class="media-icons">
+              <i class="bi bi-pencil-square" routerLink="/supervisor/edit/{{supervisor.id_supervisor}}/{{id_cargo}}" ></i>
+              <i class="bi bi-trash-fill" (click)="abrirModal(supervisor.id_supervisor)"></i>
+            </div>
+
+            <div class="name-profession mt-5">
+              <span class="name">{{supervisor.su_nome}}</span>
+              <span class="profession">{{supervisor.su_email}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</section>
+<div *ngIf="isModal">
+  <div class="minhaModal">
+    <div class="tituloModal">
+      <h5 class="text-center">Aviso!</h5>
+    </div>
+    <h6 class="my-4 text-center">Deseja excuir o supervisor?</h6>
+    <div class="buttons">
+      <button class="cancela" (click)="fecharModal()">Cancelar</button>
+      <button class="confirma">Excluir</button>
+    </div>
+  </div>
+</div>
+
+

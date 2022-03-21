@@ -1,0 +1,41 @@
+<section>
+
+  <div class="swiper mySwiper container">
+    <h1 class="text-center ">Cargos</h1>
+    <div class="swiper-wrapper content d-flex mt-5  flex-wrap justify-content-center">
+
+        <div class="swiper-slide card mx-2 mt-4" *ngFor="let cargo of cargos">
+          <div class="card-content">
+            <div class="image">
+              <img src="assets/logo.png" alt="">
+            </div>
+
+            <div class="media-icons">
+              <i class="bi bi-people-fill" routerLink="/funcionario/list/{{cargo.id_cargo}}"></i>
+              <i class="bi bi-pencil-square" routerLink="/cargo/edicao/{{cargo.id_cargo}}"></i>
+              <i class="bi bi-trash-fill" (click)="abrirModal(cargo.id_cargo)"></i>
+            </div>
+
+            <div class="name-profession">
+              <span class="name">{{cargo.car_nome}}</span>
+              <span class="profession">{{cargo.car_atribuicao}}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</section>
+<div *ngIf="isModal">
+  <div class="minhaModal" *ngFor="let cargo of cargos">
+    <div class="tituloModal">
+      <h5 class="text-center">Aviso!</h5>
+    </div>
+    <h6 class="my-4 text-center">Deseja excuir o cargo?</h6>
+    <div class="buttons">
+      <button class="cancela" (click)="fecharModal()">Cancelar</button>
+      <button class="confirma" (click)="excluirCargo()">Excluir</button>
+    </div>
+  </div>
+</div>
+

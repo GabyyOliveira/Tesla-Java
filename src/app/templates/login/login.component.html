@@ -1,0 +1,25 @@
+<div class="main-login">
+  <div class="left-login">
+    <h1>Faça login<br> E entre na plataforma</h1>
+    <img src="assets/tesla.png" alt="logo">
+  </div>
+  <form [formGroup]="form">
+  <div class="right-login">
+
+    <div class="card-login">
+      <h1>LOGIN</h1>
+      <div class="textfield">
+        <label for="usuario">Usuário</label>
+        <input type="text" name="usuario" formControlName="login" [(ngModel)]="user.nome" placeholder="Usuário">
+      </div>
+      <div class="textfield">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" formControlName="senha" [(ngModel)]="user.senha" placeholder="Senha">
+      </div>
+      <button class="btn-login" [disabled]="!form.valid" (click)="doLogin()">Login</button>
+    </div>
+
+  </div>
+  </form>
+</div>
+

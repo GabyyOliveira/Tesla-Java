@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="form-login">
+  <div class="right-login">
+    <div class="card-login">
+      <h1>NOVA BONIFICAÇÃO</h1>
+      <div class="textfield">
+        <label for="bo_descricao">Descrição</label>
+        <input type="text"  id="" placeholder="Descrição" [(ngModel)]="bonificacao.bo_descricao" required name="bo_descricao">
+      </div>
+      <div class="textfield">
+        <label for="bo_mes">Data Pagamento</label>
+        <input type="date"  id="" placeholder="Data de pagamento" [(ngModel)]="bonificacao.bo_mes"
+        required name="bo_mes">
+      </div>
+      <div class="textfield">
+        <label for="bo_valor">Valor</label>
+        <input type="text" placeholder="Valor" [(ngModel)]="bonificacao.bo_valor"
+        required name="bo_valor">
+      </div>
+      <div class="textfield">
+        <label for="bo_status">Status</label>
+        <input type="text" [(ngModel)]="bonificacao.bo_status"
+        readonly name="bo_status">
+      </div>
+      <button class="btn-login" (click)="cadastrarBonificacao()">cadastrar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="isAlert" class="alertu">
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+    <div>
+      <p><i class="bi bi-check-circle-fill"></i>Bonificação Cadastrada com sucesso!!</p>
+    </div>
+  </div>
+  </div>
+

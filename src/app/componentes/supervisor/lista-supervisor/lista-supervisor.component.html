@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="titulo">
+  <h1 class="text-center">Supervisores</h1>
+  <button class="btn mb-5" routerLink="/supervisor/add">Novo supervisor</button>
+</div>
+  <div class="card ">
+    <div class="card-body">
+
+      <div style="height: 300px; overflow: auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col" style="color: #00ff88;">Cargo</th>
+              <th scope="col">Atribuir Cargo</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of supervisores">
+              <th scope="row">{{item.id_supervisor}}</th>
+              <td>{{item.su_nome}}</td>
+              <td>{{item.su_email}}</td>
+              <td style="color: #00ff88;">{{item.car_nome}}</td>
+              <td><button class="btn btn-dark" routerLink="/supervisor/atribuir/{{item.id_supervisor}}">Cargo</button></td>
+              <td><i class="bi bi-pencil-square text-warning" routerLink="/supervisor/edit/{{item.id_supervisor}}"></i>
+                <i class="bi bi-trash-fill text-danger"></i>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+.container{
+  position: absolute;
+  width: calc(100% - 260px);
+  left: 260px;
+  top: 100px;
+}
+.container > h1{
+  color: #00ff88;
+}
+.card{
+  background: #2f2841;
+  color: aliceblue;
+  border-radius: 20px;
+}
+.card table tbody td i:hover{
+  color: #00ff88;
+}
+
+.card table{
+  color: white;
+}
+.titulo button{
+  background: #00ff88;
+  outline: none;
+  border: none;
+  color: #2b134b;
+  padding: 8px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.titulo h1{
+  color: #00ff88;
+}
+::-webkit-scrollbar-track {
+  background-color: #3a393900;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background: #55555500;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b00;
+}

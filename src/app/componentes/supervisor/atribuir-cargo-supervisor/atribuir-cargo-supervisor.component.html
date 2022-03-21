@@ -1,0 +1,61 @@
+<div class="container">
+  <h1 class="text-center">Atribuir Cargo</h1>
+  <div class="row">
+    <div class="col-7">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dados do Supervisor</h5>
+          <form>
+            <div class="textfield">
+              <label for="su_nome">Nome</label>
+              <input type="text" name="su_nome"  readonly [(ngModel)]="supervisor.su_nome" placeholder="nome">
+            </div>
+            <div class="textfield">
+              <label for="su_email">Email</label>
+              <input type="text" name="su_email" readonly [(ngModel)]="supervisor.su_email" placeholder="email" >
+            </div>
+            <button class="btn btn-login" routerLink="/supervisor/list">Cancelar</button>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="card">
+        <h5 class="card-title mx-3">Cargo do Supervisor: </h5>
+        <div class="card-body">
+
+          <div class="textfield">
+            <label for="car_nome">Nome</label>
+            <input type="text" name="car_nome" readonly [(ngModel)]="cargo.car_nome" placeholder="nome cargo">
+          </div>
+          <div class="textfield">
+            <label for="car_atribuicao">Atribuição</label>
+            <input type="text" name="car_atribuicao" readonly [(ngModel)]="cargo.car_atribuicao" placeholder="atribuição">
+          </div>
+          <hr>
+          <div class="card">
+          <h5 class="card-title my-4"> Escolha um novo Cargo para o Supervisor:</h5>
+          <div class="card-body">
+          <select [(ngModel)]="cargoSemSupervisorEscolhido"  name="cargoSemSupervisorEscolhido" (ngModelChange)="escolherCargo()">
+              <option *ngFor="let cargo of cargoSemSupervisor" [ngValue]="cargo">
+                {{cargo.car_nome}} - {{cargo.car_atribuicao}}
+              </option>
+            </select>
+            <button (click)="atribuirCargo()"  class="btn btn-login">Salvar</button>
+          </div>
+        </div>
+          <hr>
+          <div class="card my-3">
+            <h5 class="card-title">Deixar Supervisor sem Cargo?</h5>
+            <div class="card-body">
+            <button (click)="deixarCargoSemSupervisor()" class="btn btn-login">Confirmar</button>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

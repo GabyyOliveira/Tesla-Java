@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="form-login">
+  <div class="right-login">
+    <div class="card-login">
+      <h1>EDITAR CARGO</h1>
+      <div class="textfield">
+        <label for="car_nome">Nome</label>
+        <input type="text"  id="" placeholder="Nome do Cargo" [(ngModel)]="cargo.car_nome"  name="car_nome">
+      </div>
+      <div class="textfield">
+        <label for="car_atribuicao">Atribuição</label>
+        <input type="text" id="" placeholder="Atribuição" [(ngModel)]="cargo.car_atribuicao" name="car_atribuicao">
+      </div>
+      <button class="btn-login" (click)="editarCargo()">editar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="isAlert" class="alertu">
+<div class="alert alert-success d-flex align-items-center" role="alert">
+  <div>
+    <p><i class="bi bi-check-circle-fill"></i> Cargo editado com sucesso!!</p>
+  </div>
+</div>
+</div>
+

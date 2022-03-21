@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="cardBox">
+    <div class="card d-flex">
+      <div>
+        <div class="numbers">{{qtnFuncionarios}}</div>
+        <div class="cardname">Funcionarios</div>
+      </div>
+      <div class="icons">
+        <i class="bi bi-person-lines-fill"></i>
+      </div>
+    </div>
+    <div class="card d-flex">
+      <div>
+        <div class="numbers">{{qtdCargos}}</div>
+        <div class="cardname">Cargos</div>
+      </div>
+      <div class="icons">
+        <i class="bi bi-folder2-open"></i>
+      </div>
+    </div>
+    <div class="card d-flex">
+      <div>
+        <div class="numbers">{{qtdsupervisorSemCargo}}</div>
+        <div class="cardname">Supervisores disponíveis</div>
+      </div>
+      <div class="icons">
+        <i class="bi bi-person-lines-fill"></i>
+      </div>
+    </div>
+    <div class="card d-flex">
+      <div>
+        <div class="numbers">{{qtdSupervisores}}</div>
+        <div class="cardname">Supervisores</div>
+      </div>
+      <div class="icons">
+        <i class="bi bi-inboxes"></i>
+      </div>
+    </div>
+  </div>
+  <div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Supervisores</h2>
+        <a class="btn" routerLink="/supervisor/list">Ver todos</a>
+      </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <td>Id</td>
+          <td>Nome</td>
+          <td>Email</td>
+          <td>Cargo</td>
+          <td>Atribuição</td>
+        </tr>
+      </thead>
+      <tbody  class="mt-3">
+        <tr *ngFor="let item of supervisores">
+          <td>{{item.id_supervisor}}</td>
+          <td>{{item.su_nome}}</td>
+          <td>{{item.su_email}}</td>
+          <td>{{item.car_nome}}</td>
+          <td>{{item.car_atribuicao}}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+
+  <div class="recentCustomers">
+    <div class="cardHeader">
+      <h2>Funcionarios</h2>
+    </div>
+    <table>
+      <tr *ngFor="let item of funcionarios">
+        <td width="60px"><div class="imgBx"><img src="../../../../{{item.func_foto}}" alt=""></div></td>
+        <td><h5>{{item.func_nome}}<br><span>{{item.func_cidade}}</span></h5>{{item.car_nome}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="titulo">
+    <h1>Bonificação do(a) Funcionário(a) <strong> {{nomeFuncionario}}</strong></h1>
+    <button routerLink="/cargo/funcionario/bonificacao/novo/{{id_funcionario}}" class="mb-2 button">Cadastrar
+      bonificação</button>
+  </div>
+  <div style="height: 600px; overflow: auto;">
+    <div class="card mt-3" *ngFor="let bonif of bonificacoes">
+      <div class="mt-2">
+        <div class="example-headers-align m-3">
+          <div class="dropdown">
+            <button class="btn " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><button class="dropdown-item btn"
+                  routerLink="/cargo/funcionario/bonificacao/edit/{{bonif.codigo}}/{{id_funcionario}}"> <i
+                    class="bi bi-pencil-square"></i> Editar</button></li>
+              <li><button class="dropdown-item btn" (click)="quitarBonificacao(bonif.codigo)"><i
+                    class="bi bi-check-circle-fill"></i> Quitar</button></li>
+              <li><button class="dropdown-item btn" (click)="cancelarBonificacao(bonif.codigo)"><i
+                    class="bi bi-x-circle-fill"></i> Cancelar</button></li>
+            </ul>
+          </div>
+          <div>
+            <div class="infos">
+              <div class="warn" *ngIf="bonif.bo_status == 'PENDENTE'" title="Pendente"><i
+                  class="bi bi-exclamation-triangle-fill"></i></div>
+              <div class="check" *ngIf="bonif.bo_status == 'RECEBIDO'" style="color: green;" title="Pago"><i
+                  class="bi bi-check-circle-fill"></i></div>
+              <div class="cancel" color="primary" *ngIf="bonif.bo_status == 'CANCELADO'" title="Cancelado"><i
+                  class="bi bi-x-circle-fill"></i>
+              </div>
+              <div>
+                #{{bonif.codigo}}
+              </div>
+              <p><strong>Descrição: </strong><span> {{bonif.bo_descricao}}</span></p>
+            </div>
+
+            <p><strong>Data de pagamento:</strong> {{bonif.bo_mes | date: "dd/MM/yyyy"}}</p>
+            <p><strong>Valor: </strong>{{bonif.bo_valor | currency: "BRL"}}</p>
+            <p><strong>Status atual: </strong> {{bonif.bo_status}}</p>
+            <hr>
+            <div class="row botoes" style="text-align: center;">
+              <!-- <button class="col-2 mx-3 bot pagar" title="Pagar" [disabled]="bonif.bo_status != 'PENDENTE'" (click)="quitarBonificacao(bonif.codigo)">
+                Pagar
+              </button>
+              <button class="col-2 mx-3 cancel btn" color="primary" title="Cancelar"
+                [disabled]="bonif.bo_status == 'PENDENTE'" (click)="cancelarBonificacao(bonif.codigo)">
+                cancelar
+              </button>
+              <button class="col-2 mx-3 edit btn" title="Editar" routerLink="/cargo/funcionario/bonificacao/edit/{{bonif.codigo}}/{{id_funcionario}}">
+               Editar
+              </button> -->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

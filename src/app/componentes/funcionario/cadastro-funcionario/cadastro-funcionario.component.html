@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-login">
+  <div class="right-login">
+    <div class="card-login">
+      <h1>NOVO FUNCIONÁRIO</h1>
+      <div class="textfield">
+        <label for="func_nome">Nome</label>
+        <input type="text"  id="" placeholder="Nome" [(ngModel)]="funcionario.func_nome" required name="func_nome">
+      </div>
+      <div class="textfield">
+        <label for="func_email">Email</label>
+        <input type="email" name="func_email" id="" placeholder="Email" [(ngModel)]="funcionario.func_email" >
+      </div>
+      <div class="textfield">
+        <label for="func_telefone">Telefone</label>
+        <input type="tel" name="func_telefone" id="" placeholder="Telefone" [(ngModel)]="funcionario.func_telefone">
+      </div>
+      <div class="textfield">
+        <label for="func_cidade">Cidade</label>
+        <input type="text" name="func_cidade" id="" placeholder="Cidade" [(ngModel)]="funcionario.func_cidade">
+      </div>
+
+      <button class="btn-login"  (click)="cadastrarFunc()">cadastrar</button>
+      <div class="textfield">
+        <label for="func_foto">Foto</label>
+        <input type="file" name="func_foto" id="" placeholder="Foto" (change)="subirFoto($event)">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="isAlert" class="alertu">
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+    <div>
+      <p><i class="bi bi-check-circle-fill"></i>Funcionario cadastrado com sucesso!! agora escolha uma foto</p>
+    </div>
+  </div>
+  </div>
+  <div *ngIf="isAlert2" class="alertu">
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+      <div>
+        <p><i class="bi bi-check-circle-fill"></i>Foto eviada com sucesso!!</p>
+      </div>
+    </div>
+    </div>
+
